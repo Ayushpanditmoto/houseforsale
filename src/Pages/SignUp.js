@@ -12,6 +12,12 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { db } from "../firebase.config";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -32,17 +38,38 @@ function SignUp() {
     setShowPassword(!showPassword);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log(user);
+      await updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+      navigate("/");
+
+      // await db.collection("users").doc(user.uid).set({
+      //   name,
+      //   email,
+      //   password,
+      // });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <SignUpContainer>
       <div className="header">
         <h1>Sign Up</h1>
       </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(formData);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <Input
           leading={<AiFillIdcard />}
           type="text"

@@ -18,6 +18,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { db } from "../firebase.config";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -52,6 +53,10 @@ function SignUp() {
       await updateProfile(auth.currentUser, {
         displayName: name,
       });
+      const formDatacopy = { ...formData };
+      delete formDatacopy.password;
+      formDatacopy.createdAt = serverTimestamp();
+      await setDoc(doc(db, "users", user.uid), formDatacopy);
       navigate("/");
 
       // await db.collection("users").doc(user.uid).set({
@@ -110,7 +115,7 @@ function SignUp() {
         </div>
       </form>
       {/* google outh */}
-      <Link to="/signup" className="register">
+      <Link to="/signin" className="register">
         Sign In Instead
       </Link>
     </SignUpContainer>

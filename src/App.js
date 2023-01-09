@@ -4,9 +4,10 @@ import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
 import Offers from "./Pages/Offers";
 import Explore from "./Pages/Explore";
-import Profile from "./Pages/Profile";
+// import Profile from "./Pages/Profile";
 import ForgotPassword from "./Pages/ForgotPassword";
 import Navbar from "./components/Navbar";
+import Profile from "./Pages/Profile";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/offers" element={<Offers />} />
-          <Route path="/profile" element={<SignIn />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Routes>
         <Navbar />

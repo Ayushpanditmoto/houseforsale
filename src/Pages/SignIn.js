@@ -8,6 +8,7 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -27,17 +28,28 @@ function SignIn() {
     setShowPassword(!showPassword);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const auth = getAuth();
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      if (userCredential.user) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <SignInContainer>
       <div className="header">
         <h1>Welcome Back!</h1>
       </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(formData);
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <Input
           leading={<FaUserAlt />}
           type="email"

@@ -6,6 +6,7 @@ import Offers from "./Pages/Offers";
 import Explore from "./Pages/Explore";
 import Profile from "./Pages/Profile";
 import ForgotPassword from "./Pages/ForgotPassword";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -19,9 +20,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Routes>
+        <Navbar />
       </Router>
-
-      {/* navbar */}
     </>
   );
 }

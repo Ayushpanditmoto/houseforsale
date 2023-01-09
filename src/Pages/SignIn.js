@@ -9,6 +9,7 @@ import {
 } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ function SignIn() {
       }
     } catch (error) {
       console.log(error);
+      toast.error("Invalid Credentials");
     }
   };
   return (

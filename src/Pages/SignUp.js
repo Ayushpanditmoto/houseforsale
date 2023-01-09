@@ -59,12 +59,6 @@ function SignUp() {
       formDatacopy.createdAt = serverTimestamp();
       await setDoc(doc(db, "users", user.uid), formDatacopy);
       navigate("/");
-
-      // await db.collection("users").doc(user.uid).set({
-      //   name,
-      //   email,
-      //   password,
-      // });
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong with Registration");

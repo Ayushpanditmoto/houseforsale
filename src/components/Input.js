@@ -39,7 +39,7 @@ const Formgroup = styled.div`
   background: #ffffff;
   border-radius: 10px;
   input {
-    margin-left: ${(props) => (props.leading ? "3rem" : "0")};
+    margin-left: ${(props) => (!props.leading ? "3rem" : "0")};
     padding: 1rem;
     width: 100%;
     border: none;

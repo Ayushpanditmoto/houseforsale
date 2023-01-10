@@ -76,7 +76,7 @@ function Profile() {
             name="email"
             value={email}
             onChange={handleChange}
-            disabled={!changeDetails}
+            disabled="disabled"
           />
         </form>
       </div>

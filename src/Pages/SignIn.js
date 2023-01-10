@@ -10,6 +10,7 @@ import {
 import { FaUserAlt } from "react-icons/fa";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
+import Oauth from "../components/Oauth";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ function SignIn() {
           </button>
         </div>
       </form>
-      {/* google outh */}
+      <Oauth />
       <Link to="/signup" className="register">
         Sign Up Instead
       </Link>

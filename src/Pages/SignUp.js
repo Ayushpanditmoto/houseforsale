@@ -20,6 +20,7 @@ import {
 import { db } from "../firebase.config";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { toast } from "react-toastify";
+import Oauth from "../components/Oauth";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -110,7 +111,7 @@ function SignUp() {
           </button>
         </div>
       </form>
-      {/* google outh */}
+      <Oauth />
       <Link to="/signin" className="register">
         Sign In Instead
       </Link>

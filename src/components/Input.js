@@ -57,8 +57,8 @@ const Formgroup = styled.div`
   .icon {
     position: absolute;
     right: 0.5rem;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
   svg {
     width: 100%;

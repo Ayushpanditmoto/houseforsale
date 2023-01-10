@@ -6,6 +6,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import Input from "../components/Input";
 import { toast } from "react-toastify";
+import { MdOutlineEditOff } from "react-icons/md";
 
 function Profile() {
   const auth = getAuth();
@@ -77,6 +78,7 @@ function Profile() {
             value={email}
             onChange={handleChange}
             disabled="disabled"
+            icons={<MdOutlineEditOff />}
           />
         </form>
       </div>

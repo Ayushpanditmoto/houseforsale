@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-function Input({ leading, icons, ...props }) {
+function Input({ ...props }) {
   return (
     <Formgroup>
-      {leading && <div className="leading">{leading}</div>}
+      {props.leading && <div className="leading">{props.leading}</div>}
 
       <input
         type={props.type}
@@ -13,15 +13,16 @@ function Input({ leading, icons, ...props }) {
         id={props.id}
         value={props.value}
         onChange={props.onChange}
+        disabled={props.disabled}
       />
-      {icons && (
+      {props.icons && (
         <div
           className="icon"
           onClick={() => {
             props.onClick();
           }}
         >
-          {icons}
+          {props.icons}
         </div>
       )}
     </Formgroup>
@@ -38,13 +39,12 @@ const Formgroup = styled.div`
   background: #ffffff;
   border-radius: 10px;
   input {
-    margin-left: 2rem;
+    margin-left: ${(props) => (props.leading ? "3rem" : "0")};
     padding: 1rem;
     width: 100%;
     border: none;
     outline: none;
     background: transparent;
-    color: #000000;
     font-size: 1rem;
   }
   .leading {

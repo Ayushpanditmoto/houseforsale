@@ -21,7 +21,7 @@ function Explore() {
             </Link>
           </div>
           <div className="category">
-            <Link to="/category/sell">
+            <Link to="/category/sale">
               <img src={sellCategoryImage} alt="sell" />
               <h2>Places for sell</h2>
             </Link>

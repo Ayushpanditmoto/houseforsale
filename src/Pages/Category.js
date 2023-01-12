@@ -55,8 +55,8 @@ const Category = () => {
       <header>
         <p className="pageHeader">
           {params.categoryName === "rent"
-            ? "Places for rent"
-            : "Places for sale"}
+            ? "Places for Rent"
+            : "Places for Sale"}
         </p>
       </header>
       {loading ? (
@@ -82,4 +82,15 @@ const Category = () => {
 
 export default Category;
 
-const CategoryContainer = styled.div``;
+const CategoryContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  .pageHeader {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 1rem;
+  }
+`;

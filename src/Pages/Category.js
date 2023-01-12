@@ -66,7 +66,11 @@ const Category = () => {
           {listings.map((listing) => (
             <main>
               <ul className="categoryListings">
-                <ListingItems listing={listing} id={listing.id} />
+                <ListingItems
+                  listing={listing}
+                  key={listing.id}
+                  id={listing.id}
+                />
               </ul>
             </main>
           ))}

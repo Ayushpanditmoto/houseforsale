@@ -32,7 +32,7 @@ function Navbar() {
               width="32px"
               height="32px"
             />
-            <p style={{ color: iconActive("/offers") }}>Offer</p>
+            <p style={{ color: iconActive("/offers") }}>Offers</p>
           </li>
           <li className="navbaritem" onClick={() => navigate("/profile")}>
             <PersonOutlineIcon

@@ -13,6 +13,7 @@ import { db } from "../firebase.config";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
+import ListingItems from "../components/listingItems";
 
 const Category = () => {
   const [listings, setListings] = useState([]);
@@ -65,13 +66,7 @@ const Category = () => {
           {listings.map((listing) => (
             <main>
               <ul className="categoryListings">
-                <li>
-                  <img src={listing.imageUrls[0]} alt="listing" />
-                </li>
-
-                <li>
-                  <p className="listingTitle">{listing.title}</p>
-                </li>
+                <ListingItems listing={listing} id={listing.id} />
               </ul>
             </main>
           ))}
